@@ -311,7 +311,6 @@ public class OreHighlightScreen extends Screen {
             }
         }
 
-        @Override
         protected int getScrollbarPosition() {
             return this.getX() + this.width - 6;
         }
@@ -356,7 +355,6 @@ public class OreHighlightScreen extends Screen {
                 return false;
             }
 
-            @Override
             public List<? extends net.minecraft.client.gui.narration.NarratableEntry> narratables() {
                 return checkboxes;
             }
@@ -368,7 +366,7 @@ public class OreHighlightScreen extends Screen {
         private final Integer oreId;
 
         public OreCheckbox(int x, int y, int width, int height, Component message, boolean selected, Integer oreId) {
-            super(x, y, width, height, message, selected, OreHighlightScreen.this.font, (checkbox, isChecked) -> {});
+            super(x, y, width, message, OreHighlightScreen.this.font, selected, (checkbox, isChecked) -> {});
             this.oreId = oreId;
         }
 

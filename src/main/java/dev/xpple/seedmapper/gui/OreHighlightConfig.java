@@ -120,9 +120,9 @@ public class OreHighlightConfig {
             // 선택된 광물들 로드
             if (compound.contains(SELECTED_ORES_KEY)) {
                 selectedOres.clear();
-                ListTag oresList = compound.getList(SELECTED_ORES_KEY);
+                ListTag oresList = compound.getList(SELECTED_ORES_KEY).orElse(new ListTag());
                 for (int i = 0; i < oresList.size(); i++) {
-                    selectedOres.add(oresList.getInt(i));
+                    selectedOres.add(oresList.getInt(i).orElse(0));
                 }
             }
 
