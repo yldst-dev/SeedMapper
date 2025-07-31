@@ -293,6 +293,11 @@ public class OreHighlightScreen extends Screen {
             super(minecraft, width, height, y, itemHeight);
         }
 
+        @Override
+        public void updateWidgetNarration(net.minecraft.client.gui.narration.NarrationElementOutput narrationElementOutput) {
+            // Required abstract method implementation
+        }
+
         public void updateEntries() {
             this.clearEntries();
             List<Integer> filteredOres = getFilteredOres();
@@ -308,7 +313,7 @@ public class OreHighlightScreen extends Screen {
 
         @Override
         protected int getScrollbarPosition() {
-            return this.x0 + this.width - 6;
+            return this.getX() + this.width - 6;
         }
 
         @Override
@@ -363,7 +368,7 @@ public class OreHighlightScreen extends Screen {
         private final Integer oreId;
 
         public OreCheckbox(int x, int y, int width, int height, Component message, boolean selected, Integer oreId) {
-            super(x, y, width, height, message, selected);
+            super(x, y, width, height, message, selected, OreHighlightScreen.this.font, (checkbox, isChecked) -> {});
             this.oreId = oreId;
         }
 

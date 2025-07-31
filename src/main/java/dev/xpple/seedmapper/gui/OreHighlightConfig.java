@@ -6,6 +6,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.IntTag;
 import net.minecraft.nbt.NbtIo;
+import net.minecraft.nbt.NbtAccounter;
 
 import java.io.File;
 import java.io.IOException;
@@ -114,12 +115,12 @@ public class OreHighlightConfig {
                 return; // 파일이 없으면 기본값 사용
             }
 
-            CompoundTag compound = NbtIo.readCompressed(configFile.toPath());
+            CompoundTag compound = NbtIo.readCompressed(configFile.toPath(), NbtAccounter.unlimitedHeap());
 
             // 선택된 광물들 로드
             if (compound.contains(SELECTED_ORES_KEY)) {
                 selectedOres.clear();
-                ListTag oresList = compound.getList(SELECTED_ORES_KEY, IntTag.TAG_INT);
+                ListTag oresList = compound.getList(SELECTED_ORES_KEY);
                 for (int i = 0; i < oresList.size(); i++) {
                     selectedOres.add(oresList.getInt(i));
                 }
@@ -127,16 +128,16 @@ public class OreHighlightConfig {
 
             // 기타 설정 로드
             if (compound.contains(CHUNK_RANGE_KEY)) {
-                chunkRange = Math.max(0, Math.min(20, compound.getInt(CHUNK_RANGE_KEY)));
+                chunkRange = Math.max(0, Math.min(20, compound.getInt(CHUNK_RANGE_KEY).orElse(5)));
             }
 
             if (compound.contains(LAST_SEED_KEY)) {
-                lastSeed = compound.getString(LAST_SEED_KEY);
+                lastSeed = compound.getString(LAST_SEED_KEY).orElse("");
             }
 
             if (compound.contains(FILTER_CATEGORY_KEY)) {
                 try {
-                    filterCategory = OreDisplayUtils.OreCategory.valueOf(compound.getString(FILTER_CATEGORY_KEY));
+                    filterCategory = OreDisplayUtils.OreCategory.valueOf(compound.getString(FILTER_CATEGORY_KEY).orElse(""));
                 } catch (IllegalArgumentException e) {
                     filterCategory = null; // 잘못된 값이면 null로 설정
                 }
