@@ -27,7 +27,7 @@ public abstract class GenerateBuildInfoTask extends DefaultTask {
 
     {
         // never reuse previous outputs
-        this.getOutputs().upToDateWhen(_ -> false);
+        this.getOutputs().upToDateWhen(task -> false);
     }
 
     @TaskAction

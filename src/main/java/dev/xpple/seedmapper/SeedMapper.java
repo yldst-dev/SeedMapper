@@ -14,6 +14,7 @@ import dev.xpple.seedmapper.config.Configs;
 import dev.xpple.seedmapper.config.SeedResolutionAdapter;
 import dev.xpple.seedmapper.render.RenderManager;
 import dev.xpple.seedmapper.util.SeedDatabaseHelper;
+import dev.xpple.seedmapper.client.KeyBindings;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
@@ -55,6 +56,7 @@ public class SeedMapper implements ClientModInitializer {
 
         ClientCommandRegistrationCallback.EVENT.register(SeedMapper::registerCommands);
         RenderManager.registerEvents();
+        KeyBindings.registerEvents();
     }
 
     private static void registerCommands(CommandDispatcher<FabricClientCommandSource> dispatcher, CommandBuildContext context) {

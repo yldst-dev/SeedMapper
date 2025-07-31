@@ -80,5 +80,30 @@
 
   "command.buildInfo.success": "Running SeedMapper on version %s (%s@{%s}).",
 
-  "config.oreAirCheck.comment": "Whether or not SeedMapper should use in-game air checks to invalidate ore positions."
+  "config.oreAirCheck.comment": "Whether or not SeedMapper should use in-game air checks to invalidate ore positions.",
+
+  "key.seedmapper.open_ore_gui": "Open Ore Highlight GUI",
+  "key.categories.seedmapper": "SeedMapper",
+
+  "gui.seedmapper.ore_highlight.title": "SeedMapper - Ore Highlight",
+  "gui.seedmapper.ore_highlight.seed": "Seed",
+  "gui.seedmapper.ore_highlight.current_seed": "Current",
+  "gui.seedmapper.ore_highlight.filter.all": "All",
+  "gui.seedmapper.ore_highlight.filter.common": "Common",
+  "gui.seedmapper.ore_highlight.filter.rare": "Rare",
+  "gui.seedmapper.ore_highlight.filter.nether": "Nether",
+  "gui.seedmapper.ore_highlight.filter.special": "Special",
+  "gui.seedmapper.ore_highlight.select_all": "Select All",
+  "gui.seedmapper.ore_highlight.clear_all": "Clear All",
+  "gui.seedmapper.ore_highlight.calculate": "Calculate",
+  "gui.seedmapper.ore_highlight.clear": "Clear",
+  "gui.seedmapper.ore_highlight.selected_count": "Selected: %s ores",
+  "gui.seedmapper.ore_highlight.status.ready": "Ready",
+  "gui.seedmapper.ore_highlight.status.calculating": "Calculating...",
+  "gui.seedmapper.ore_highlight.status.completed": "Highlighted %s ore types!",
+  "gui.seedmapper.ore_highlight.status.cleared": "Cleared all highlights",
+  "gui.seedmapper.ore_highlight.error.no_seed": "Please enter a seed",
+  "gui.seedmapper.ore_highlight.error.no_ores": "Please select at least one ore type",
+  "gui.seedmapper.ore_highlight.error.invalid_seed": "Invalid seed format",
+  "gui.seedmapper.ore_highlight.error.calculation_failed": "Calculation failed"
 }
